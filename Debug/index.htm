@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>ActiveX Test Page</title>
+</head>
+<script type="text/javascript">
+
+	function Call()
+	{
+		document.EasyPDF.Load("hello");
+	}
+</script>
+<body>
+<OBJECT ID="EasyPDF" classid="clsid:52805E94-07A4-42C9-9CF8-C83CCBD9C0C1"
+		codebase="http://127.0.0.1:8081/EasyPDF.ocx#version=1,0,0,0"
+		width="350"
+		height="300"
+>
+</OBJECT>
+
+<input type="button" value="test" onclick="Call()" />
+</body>
+</html> 

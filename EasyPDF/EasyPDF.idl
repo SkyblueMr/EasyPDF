@@ -1,0 +1,51 @@
+// EasyPDF.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(EasyPDF.tlb)，该类型库将成为
+// EasyPDF.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(19901D3B-6D4D-4FE8-9B74-C48BF2E8056A), version(1.0),
+  control ]
+library EasyPDFLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CEasyPDFCtrl 的主调度接口
+	[ 
+		uuid(7D6957D9-8EC9-40F2-8597-857062AF5FE5)	
+	]
+	dispinterface _DEasyPDF
+	{
+		properties:
+		methods:
+			[id(1)] void Load(LPCTSTR URL);
+	};
+
+	//  CEasyPDFCtrl 的事件调度接口
+
+	[ 
+		uuid(5BAE4438-FE58-4131-BEF4-74374FE20812)	
+	]
+	dispinterface _DEasyPDFEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CEasyPDFCtrl 的类信息
+	[
+		uuid(52805E94-07A4-42C9-9CF8-C83CCBD9C0C1),
+		helpstring("EasyPDF"), control
+	]
+	coclass EasyPDF
+	{
+		[default] dispinterface _DEasyPDF;
+		[default, source] dispinterface _DEasyPDFEvents;
+	};
+
+};
