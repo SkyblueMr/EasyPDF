@@ -37,10 +37,10 @@
     <ClCompile Include="EasyPDFPropPage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MD5.cpp">
+    <ClCompile Include="MainSection.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="RC4.cpp">
+    <ClCompile Include="PDFHelper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,10 +63,19 @@
     <ClInclude Include="EasyPDFPropPage.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MD5.h">
+    <ClInclude Include="MainSection.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="RC4.h">
+    <ClInclude Include="PDFHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mupdf\fitz-internal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mupdf\fitz.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Gdiplusnew.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -79,5 +88,8 @@
     <Midl Include="EasyPDF.idl">
       <Filter>源文件</Filter>
     </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="mupdf\libmupdf.lib" />
   </ItemGroup>
 </Project>

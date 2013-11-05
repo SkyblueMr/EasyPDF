@@ -1,0 +1,61 @@
+﻿生成启动时间为 2013/11/4 16:21:24。
+     1>项目“H:\GitHub\EasyPDF\EasyPDF\EasyPDF.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Release\EasyPDF.lastbuildstate”。
+       InitializeBuildStatus:
+         正在对“Release\EasyPDF.unsuccessfulbuild”执行 Touch 任务。
+       Midl:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\midl.exe /D NDEBUG /W1 /nologo /char signed /env win32 /h "EasyPDFidl.h" /tlb "Release\EasyPDF.tlb" /robust EasyPDF.idl 
+         Processing .\EasyPDF.idl
+         EasyPDF.idl
+         Processing C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\oaidl.idl
+         oaidl.idl
+         Processing C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\objidl.idl
+         objidl.idl
+         Processing C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\unknwn.idl
+         unknwn.idl
+         Processing C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\wtypes.idl
+         wtypes.idl
+         Processing C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\basetsd.h
+         basetsd.h
+         Processing C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\guiddef.h
+         guiddef.h
+         Processing C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\include\oaidl.acf
+         oaidl.acf
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\EasyPDF.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _USRDLL /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\EasyPDF.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt EasyPDF.cpp EasyPDFCtrl.cpp EasyPDFPropPage.cpp MainSection.cpp PDFHelper.cpp
+         EasyPDF.cpp
+         EasyPDFCtrl.cpp
+         EasyPDFPropPage.cpp
+         MainSection.cpp
+         PDFHelper.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /l"0x0804" /IRelease\ /nologo /fo"Release\EasyPDF.res" EasyPDF.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\GitHub\EasyPDF\Release\EasyPDF.ocx" /INCREMENTAL:NO /NOLOGO /DEF:".\EasyPDF.def" /MANIFEST /ManifestFile:"Release\EasyPDF.ocx.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"H:\GitHub\EasyPDF\Release\EasyPDF.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\GitHub\EasyPDF\Release\EasyPDF.lib" /MACHINE:X86 /DLL Release\EasyPDF.res
+         Release\EasyPDF.obj
+         Release\EasyPDFCtrl.obj
+         Release\EasyPDFPropPage.obj
+         Release\MainSection.obj
+         Release\PDFHelper.obj
+         Release\stdafx.obj
+         mupdf\libmupdf.lib
+            正在创建库 H:\GitHub\EasyPDF\Release\EasyPDF.lib 和对象 H:\GitHub\EasyPDF\Release\EasyPDF.exp
+         正在生成代码
+         已完成代码的生成
+         EasyPDF.vcxproj -> H:\GitHub\EasyPDF\Release\EasyPDF.ocx
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"H:\GitHub\EasyPDF\Release\EasyPDF.ocx;#2" /manifest Release\EasyPDF.ocx.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       RegisterOutput:
+         regsvr32 /s /n /i:user "H:\GitHub\EasyPDF\Release\EasyPDF.ocx"
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppCommon.targets(747,5): warning MSB3073: 命令“regsvr32 /s /n /i:user "H:\GitHub\EasyPDF\Release\EasyPDF.ocx"”已退出，代码为 3。
+         上一错误已转换为警告，因为调用任务时指定了 ContinueOnError=true。
+         继续生成，因为任务“Exec”的“ContinueOnError”设置为“true”。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppCommon.targets(756,5): error MSB8011: 未能注册输出。请尝试启用“逐用户重定向”，或者使用提升的权限从命令提示符处注册该组件。
+     1>已完成生成项目“H:\GitHub\EasyPDF\EasyPDF\EasyPDF.vcxproj”(rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:09.36

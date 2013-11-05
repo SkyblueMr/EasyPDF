@@ -2,6 +2,7 @@
 
 // EasyPDFCtrl.h : CEasyPDFCtrl ActiveX 控件类的声明。
 
+#include "MainSection.h"
 
 // CEasyPDFCtrl : 有关实现的信息，请参阅 EasyPDFCtrl.cpp。
 
@@ -45,5 +46,11 @@ public:
 	};
 protected:
 	void Load(LPCTSTR URL);
+	void Display();
+public:
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnStaticPaint( );
+	CMainSection m_Main;
 };
 
