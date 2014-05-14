@@ -1,5 +1,5 @@
-﻿生成启动时间为 2013/11/5 11:29:48。
-     1>项目“H:\GitHub\EasyPDF\EasyPDF\EasyPDF.vcxproj”在节点 2 上(rebuild 个目标)。
+﻿生成启动时间为 2013/12/1 23:38:45。
+     1>项目“G:\H\GitHub\EasyPDF\EasyPDF\EasyPDF.vcxproj”在节点 2 上(rebuild 个目标)。
      1>_PrepareForClean:
          正在删除文件“Debug\EasyPDF.lastbuildstate”。
        InitializeBuildStatus:
@@ -37,7 +37,7 @@
        ManifestResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\EasyPDF.ocx.embed.manifest.res" Debug\EasyPDF_manifest.rc 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\GitHub\EasyPDF\Debug\EasyPDF.ocx" /INCREMENTAL /NOLOGO /DEF:".\EasyPDF.def" /MANIFEST /ManifestFile:"Debug\EasyPDF.ocx.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"H:\GitHub\EasyPDF\Debug\EasyPDF.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\GitHub\EasyPDF\Debug\EasyPDF.lib" /MACHINE:X86 /DLL Debug\EasyPDF.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\H\GitHub\EasyPDF\Debug\EasyPDF.ocx" /INCREMENTAL /NOLOGO /DEF:".\EasyPDF.def" /MANIFEST /ManifestFile:"Debug\EasyPDF.ocx.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\H\GitHub\EasyPDF\Debug\EasyPDF.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\H\GitHub\EasyPDF\Debug\EasyPDF.lib" /MACHINE:X86 /DLL Debug\EasyPDF.res
          Debug\EasyPDF.ocx.embed.manifest.res
          Debug\EasyPDF.obj
          Debug\EasyPDFCtrl.obj
@@ -46,13 +46,13 @@
          Debug\PDFHelper.obj
          Debug\stdafx.obj
          mupdf\libmupdf.lib
-            正在创建库 H:\GitHub\EasyPDF\Debug\EasyPDF.lib 和对象 H:\GitHub\EasyPDF\Debug\EasyPDF.exp
+            正在创建库 G:\H\GitHub\EasyPDF\Debug\EasyPDF.lib 和对象 G:\H\GitHub\EasyPDF\Debug\EasyPDF.exp
        Manifest:
          正在删除文件“Debug\EasyPDF.ocx.embed.manifest”。
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\EasyPDF.ocx.embed.manifest" /manifest Debug\EasyPDF.ocx.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\EasyPDF.ocx.embed.manifest.res" Debug\EasyPDF_manifest.rc 
        LinkEmbedManifest:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\GitHub\EasyPDF\Debug\EasyPDF.ocx" /INCREMENTAL /NOLOGO /DEF:".\EasyPDF.def" /MANIFEST /ManifestFile:"Debug\EasyPDF.ocx.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"H:\GitHub\EasyPDF\Debug\EasyPDF.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\GitHub\EasyPDF\Debug\EasyPDF.lib" /MACHINE:X86 /DLL Debug\EasyPDF.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\H\GitHub\EasyPDF\Debug\EasyPDF.ocx" /INCREMENTAL /NOLOGO /DEF:".\EasyPDF.def" /MANIFEST /ManifestFile:"Debug\EasyPDF.ocx.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\H\GitHub\EasyPDF\Debug\EasyPDF.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\H\GitHub\EasyPDF\Debug\EasyPDF.lib" /MACHINE:X86 /DLL Debug\EasyPDF.res
          Debug\EasyPDF.ocx.embed.manifest.res
          Debug\EasyPDF.obj
          Debug\EasyPDFCtrl.obj
@@ -61,14 +61,14 @@
          Debug\PDFHelper.obj
          Debug\stdafx.obj
          mupdf\libmupdf.lib
-         EasyPDF.vcxproj -> H:\GitHub\EasyPDF\Debug\EasyPDF.ocx
+         EasyPDF.vcxproj -> G:\H\GitHub\EasyPDF\Debug\EasyPDF.ocx
        RegisterOutput:
-         regsvr32 /s "H:\GitHub\EasyPDF\Debug\EasyPDF.ocx"
+         regsvr32 /s "G:\H\GitHub\EasyPDF\Debug\EasyPDF.ocx"
        FinalizeBuildStatus:
          正在删除文件“Debug\EasyPDF.unsuccessfulbuild”。
          正在对“Debug\EasyPDF.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“H:\GitHub\EasyPDF\EasyPDF\EasyPDF.vcxproj”(rebuild 个目标)的操作。
+     1>已完成生成项目“G:\H\GitHub\EasyPDF\EasyPDF\EasyPDF.vcxproj”(rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:10.89
+已用时间 00:00:11.95

@@ -2,7 +2,7 @@
 #include "PDFHelper.h"
 #include <zlib.h>
 
-const int ImgQualiry = 90;
+const int ImgQualiry = 30;
 
 static void rgb_to_rgb(fz_context *ctx, fz_colorspace *cs, float *rgb, float *xyz)
 {

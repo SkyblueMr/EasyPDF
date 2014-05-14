@@ -22,6 +22,7 @@ library EasyPDFLib
 		properties:
 		methods:
 			[id(1)] void Load(LPCTSTR URL);
+			[id(2)] void InvokeFunc(BSTR FuncName, IDispatch* Func);
 	};
 
 	//  CEasyPDFCtrl 的事件调度接口

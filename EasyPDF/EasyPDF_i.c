@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Tue Nov 05 11:29:48 2013
+/* at Sun Dec 01 23:38:45 2013
  */
 /* Compiler settings for EasyPDF.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 

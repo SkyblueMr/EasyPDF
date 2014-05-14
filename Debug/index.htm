@@ -3,6 +3,11 @@
 	<title>ActiveX Test Page</title>
 </head>
 <script type="text/javascript">
+	function Initilize()
+	{
+		document.EasyPDF.Load("http://hikittys.com:8088/1.pdf");
+	}
+
 	function workaround()
 	{
 		// "a" is the name of the control.
@@ -14,15 +19,16 @@
 	{
 		document.EasyPDF.Load("hello");
 	}
+
 </script>
 <body onScroll="workaround();">
 <OBJECT ID="EasyPDF" classid="clsid:52805E94-07A4-42C9-9CF8-C83CCBD9C0C1"
-		codebase="http://127.0.0.1:8080/EasyPDF.ocx#version=1,0,0,0"
-		width="800"
-		height="800"
+		codebase="http://localhost:8088/EasyPDF.ocx#version=1,0,0,0"
+		width="100%"
+		height="100%"
 >
 </OBJECT>
 
-<input type="button" value="test" onclick="Call()" />
+<!--<input type="button" value="test" onclick="Call()" /> -->
 </body>
 </html> 

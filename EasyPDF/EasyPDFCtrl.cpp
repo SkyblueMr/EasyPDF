@@ -1,5 +1,5 @@
 // EasyPDFCtrl.cpp : CEasyPDFCtrl ActiveX 控件类的实现。
-
+#include <afxwin.h>
 #include "stdafx.h"
 #include "EasyPDF.h"
 #include "EasyPDFCtrl.h"
@@ -10,6 +10,8 @@
 #include <Windows.h>
 #include <wininet.h>
 #include <atlimage.h>
+#include <afxdisp.h>
+#include <MsHTML.h>
 
 #pragma comment( lib, "wininet.lib" )
 
@@ -19,14 +21,12 @@
 IMPLEMENT_DYNCREATE(CEasyPDFCtrl, COleControl)
 
 
-
 // 消息映射
 
 BEGIN_MESSAGE_MAP(CEasyPDFCtrl, COleControl)
 	ON_OLEVERB(AFX_IDS_VERB_PROPERTIES, OnProperties)
 	ON_WM_SIZE()
 	ON_WM_CREATE()
-	ON_BN_PAINT(125, OnStaticPaint)
 END_MESSAGE_MAP()
 
 
@@ -34,6 +34,7 @@ END_MESSAGE_MAP()
 
 BEGIN_DISPATCH_MAP(CEasyPDFCtrl, COleControl)
 	DISP_FUNCTION_ID(CEasyPDFCtrl, "Load", dispidLoad, Load, VT_EMPTY, VTS_BSTR)
+	DISP_FUNCTION_ID(CEasyPDFCtrl, "InvokeFunc", dispidInvokeFunc, InvokeFunc, VT_EMPTY, VTS_BSTR VTS_DISPATCH)
 END_DISPATCH_MAP()
 
 
@@ -176,32 +177,6 @@ void CEasyPDFCtrl::OnResetState()
 
 // CEasyPDFCtrl 消息处理程序
 
-#define MAX_BUFFER 102400
-
-char * Download(const char * URL, ULONG &Number)
-{
-	char * Data = new char[MAX_BUFFER];
-
-	HINTERNET hSession =  InternetOpen((LPCWSTR)"IE", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0 );
-	if (NULL != hSession)
-	{
-		HINTERNET InternalHandle = InternetOpenUrlA(hSession, URL, NULL, 0, INTERNET_FLAG_DONT_CACHE, 0);
-		DWORD err =GetLastError();
-		if(NULL != InternalHandle)
-		{
-			InternetReadFile(InternalHandle, Data, MAX_BUFFER, &Number);
-			InternetCloseHandle(InternalHandle);
-			InternalHandle = NULL;
-		}
-
-		InternetCloseHandle(hSession);
-		hSession = NULL;
-	}
-	
-	return Data;
-}
-
-ATL::CImage img;
 void CEasyPDFCtrl::Load(LPCTSTR URL)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
@@ -247,34 +222,20 @@ void CEasyPDFCtrl::Load(LPCTSTR URL)
 		}
 	}*/
 
-	/*ULONG size = 0;
-	char * heap = Download("http://news.xinhuanet.com/legal/2013-11/01/125632558_11n.jpg", size);
+	m_Main.Create(IDD_MAIN, this);
+	m_Main.AnalyzePDF(URL);
+	m_Main.ShowWindow(SW_SHOW);
 
-	CDC * cdc = GetDC();
-	HGLOBAL hGlobal = ::GlobalAlloc(GHND, MAX_BUFFER);
-    LPBYTE  lpByte  = (LPBYTE)::GlobalLock(hGlobal);
-	CopyMemory(lpByte, heap, MAX_BUFFER);
-    ::GlobalUnlock(hGlobal);
-    IStream* pStream = NULL;
-    if ( SUCCEEDED(::CreateStreamOnHGlobal(hGlobal, FALSE, &pStream)) )
-    {
-        img.Destroy();
-        img.Load(pStream);
-		RECT rect = { 0 };
-		rect.bottom = img.GetHeight();
-		rect.right = img.GetWidth();
-		img.Draw(cdc->m_hDC, rect);
-        pStream->Release();
-    }
-    GlobalFree(hGlobal);	
-	ReleaseDC(cdc);*/
-	Display();
+	
+	// 获取用户区矩形
+	RECT ClientRect = { 0 };
+	GetClientRect(&ClientRect);
+
+	// 设置对话框矩形
+	m_Main.MoveWindow(0, 0, ClientRect.right, ClientRect.bottom);
 }
 
 // CEasyPDFCtrl::OnDraw - 绘图函数
-
-Gdiplus::Bitmap * girl;
-CDC * sDC;
 
 void CEasyPDFCtrl::OnDraw(
 			CDC* pdc, const CRect& rcBounds, const CRect& rcInvalid)
@@ -291,46 +252,6 @@ void CEasyPDFCtrl::OnDraw(
 
 		// TODO: 如果将任何 GDI 对象选入到设备上下文 *pdc 中，
 		//		请在此处恢复先前选定的对象。
-		/*Gdiplus::Bitmap * imgs = new Gdiplus::Bitmap(_T("C:/Users/Administrator/Desktop/Other/girl.jpg"));
-
-		CDC * dc = GetDC();
-
-		Gdiplus::Graphics * g = new Gdiplus::Graphics(dc->m_hDC);
-		g->ScaleTransform(0.5, 0.5);
-		g->DrawImage(imgs, 0, 0);
-		g->DrawImage(imgs, 0, 650);
-
-		ReleaseDC(dc);*/
-		CStatic * cStatic = (CStatic*)GetDlgItem(125);
-		CScrollBar * cScroll = (CScrollBar*)GetDlgItem(123);
-		if(NULL == cStatic)
-		{
-			CStatic * panel = new CStatic();
-			ASSERT_VALID(panel);
-			RECT rect = { 0 };
-			rect.bottom = 400;
-			rect.right = 400;
-			panel->Create(_T(""), WS_CHILD | WS_VISIBLE | SS_BITMAP, rect, this, 125);
-			sDC = panel->GetDC();
-			Gdiplus::Bitmap * imgs = new Gdiplus::Bitmap(_T("C:/Users/Administrator/Desktop/Other/war3.jpg"));
-			girl = imgs;
-
-			CScrollBar * Scroll = new CScrollBar();
-			ASSERT_VALID(Scroll);
-			RECT ScrollRect;
-			ScrollRect.top = 0;
-			ScrollRect.right = 500;
-			Scroll->Create(WS_CHILD | WS_VISIBLE, ScrollRect, panel, 123);
-			Scroll->SetScrollRange(0, 100);
-			Scroll->SetScrollPos(0);
-			Scroll->ShowScrollBar();
-		}
-
-		Gdiplus::Graphics * g = Gdiplus::Graphics::FromHDC(sDC->m_hDC);
-		g->ScaleTransform(0.5, 0.5);
-		g->DrawImage(girl, 0, -200, 400, 400);
-		g->DrawImage(girl, 0, 210, 400, 400);
-		g->DrawImage(girl, 0, 620, 400, 400);
 		
 	}
 }
@@ -352,30 +273,40 @@ int CEasyPDFCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  在此添加您专用的创建代码
-	//m_Main.Create(IDD_MAIN, this);
+	GetURL();
 
 	return 0;
 }
 
-void CEasyPDFCtrl::Display()
-{  
-    // Bitmap * dest = new Bitmap(_T("C:/Users/Administrator/Desktop/Other/girl.jpg"));
-	
-} 
 
-void CEasyPDFCtrl::OnStaticPaint()
+void CEasyPDFCtrl::GetURL()
 {
-	MessageBox(_T("load"));
-	if(NULL == girl)
-	{
-		MessageBox(_T("load"));
-		Gdiplus::Bitmap * imgs = new Gdiplus::Bitmap(_T("C:/Users/Administrator/Desktop/Other/war3.jpg"));
-		girl = imgs;
-	}
+	USES_CONVERSION;  
 
-	Gdiplus::Graphics * g = new Gdiplus::Graphics(sDC->m_hDC);
-	g->ScaleTransform(0.5, 0.5);
-	g->DrawImage(girl, 0, 0);
-	g->DrawImage(girl, 0, 800);
+	IOleContainer* pContainer = NULL;
+	IHTMLDocument* pDoc = NULL;
+	m_pClientSite->GetContainer( &pContainer );
+	if ( pContainer != NULL )
+	pContainer->QueryInterface( IID_IHTMLDocument, (void**)&pDoc );
+
+	HRESULT hresult;
+	OLECHAR FAR* szMember = T2W(_T("Initilize"));
+
+	DISPID dispid;
+	DISPPARAMS dispparamsNoArgs = {NULL, NULL, 0, 0};
+
+	IDispatch * pdisp = NULL;
+	pDoc->get_Script(&pdisp);
+	hresult = pdisp->GetIDsOfNames(IID_NULL,&szMember,1, LOCALE_SYSTEM_DEFAULT,&dispid);
+	hresult = pdisp->Invoke(dispid,IID_NULL,LOCALE_USER_DEFAULT,DISPATCH_METHOD,&dispparamsNoArgs, NULL, NULL, NULL);
+	pContainer->Release();
 }
 
+
+void CEasyPDFCtrl::InvokeFunc(LPCTSTR FuncName, IDispatch* Func)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+
+	// TODO: 在此添加调度处理程序代码
+
+}

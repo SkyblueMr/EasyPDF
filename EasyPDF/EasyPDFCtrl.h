@@ -42,15 +42,17 @@ protected:
 // 调度和事件 ID
 public:
 	enum {
+		dispidInvokeFunc = 2L,
 		dispidLoad = 1L
 	};
 protected:
 	void Load(LPCTSTR URL);
-	void Display();
 public:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void OnStaticPaint( );
 	CMainSection m_Main;
+protected:
+	void InvokeFunc(LPCTSTR FuncName, IDispatch* Func);
+	void GetURL();
 };
 
